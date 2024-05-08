@@ -1,0 +1,38 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <record id="pos_config_inherit_point_of_sale" model="ir.ui.view">
+        <field name="name">pos.config.inherit.point.of.sale</field>
+        <field name="model">pos.config</field>
+        <field name="inherit_id" ref="point_of_sale.pos_config_view_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//div[@id='other_devices']" position="before">
+                <div class="col-12 col-lg-6 o_setting_box" id="is_custom_header_footer">
+                    <div class="o_setting_left_pane">
+                        <field name="is_custom_header_footer" />
+                    </div>
+                    <div class="o_setting_right_pane">
+                        <label for="is_custom_header_footer" />
+                        <div class="text-muted">
+                            Add a custom message to header and footer
+                        </div>
+                        <div class="content-group mb8"
+                            attrs="{'invisible' : [('is_custom_header_footer', '=', False)]}">
+                            <div>
+                                <label string="Header" for="custom_header"
+                                    class="col-lg-2 o_light_label" />
+                                <field name="custom_header"
+                                    placeholder="e.g. Company Address, Website" />
+                            </div>
+                            <div>
+                                <label string="Footer" for="custom_footer"
+                                    class="col-lg-2 o_light_label" />
+                                <field name="custom_footer"
+                                    placeholder="e.g. Return Policy, Thanks for shopping with us!" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </xpath>
+        </field>
+    </record>
+</odoo>
